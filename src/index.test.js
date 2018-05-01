@@ -56,12 +56,12 @@ test("you can pass data instead of a fetcher", () => {
     `
   };
   const monoQuery = createMonoQuery({
-      data: {
-        hello: "world",
-        something: "good",
-        anotherThing: "hey"
-      }
-    });
+    data: {
+      hello: "world",
+      something: "good",
+      anotherThing: "hey"
+    }
+  });
   const result = monoQuery({
     query: gql`
       {
@@ -76,5 +76,31 @@ test("you can pass data instead of a fetcher", () => {
   expect(result.getResultsFor(fragments)).toEqual({
     simpleFragment: { something: "good" },
     withGraphQLTag: { anotherThing: "hey" }
+  });
+});
+
+test("it can handle null data", () => {
+  const fragments = {
+    simpleFragment: gql`
+      fragment SimpleFragment on Query {
+        something
+      }
+    `
+  };
+  const monoQuery = createMonoQuery({
+    data: {}
+  });
+  const result = monoQuery({
+    query: gql`
+      {
+        aThingThatIsNull {
+          ...SimpleFragment
+        }
+      }
+      ${fragments.simpleFragment}
+    `
+  });
+  expect(result.getResultsFor(fragments)).toEqual({
+    simpleFragment: {},
   });
 });
