@@ -122,22 +122,19 @@ describe("when fragments are nested under lists", () => {
         someList: [createListItem("A"), createListItem("B")]
       }
     });
-    const result = monoQuery(
-      {
-        query: gql`
-          {
-            someList {
-              anotherList {
-                ...FragmentInLists
-              }
+    const result = monoQuery({
+      query: gql`
+        {
+          someList {
+            anotherList {
+              ...FragmentInLists
             }
           }
-          ${fragments.fragmentInLists}
-        `
-      },
-      [1, 0]
-    );
-    expect(result.getResultsFor(fragments)).toEqual({
+        }
+        ${fragments.fragmentInLists}
+      `
+    });
+    expect(result.getResultsFor(fragments, [1, 0])).toEqual({
       fragmentInLists: {
         something: "B1"
       }

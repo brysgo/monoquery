@@ -2,13 +2,15 @@
 
 module.exports = function (object, path, otherwise, arrayPath) {
   if (path && typeof path === "string") path = path.split('.')
-  var totalLength = path.length;
   if (arrayPath && typeof arrayPath === "string") arrayPath = arrayPath.split('.')
-  if (!!arrayPath) totalLength = totalLength + arrayPath.length;
 
   if (object === null || object === undefined) return otherwise
 
   if (!path) return object
+  else {
+    var totalLength = path.length;
+  }
+  if (!!arrayPath) totalLength = totalLength + arrayPath.length;
 
   var current = object
   var prop

@@ -1,12 +1,12 @@
 import tryGet from "./try-get";
 import { filter } from "graphql-anywhere";
 
-export const createMonoQuery = fetcherOrData => (graphqlQueryParams, arrayPath = []) => {
+export const createMonoQuery = fetcherOrData => (graphqlQueryParams) => {
   const { query: inputQuery, ...rest } = graphqlQueryParams;
   const { fragmentPaths, fragmentNames, parsedQuery } = inputQuery;
   const resultsFromData = data => (
     {
-      getResultsFor: fragments => (
+      getResultsFor: (fragments, arrayPath = []) => (
         Object.keys(fragments).reduce(
           (acc, key) => (
             (acc[key] = filter(
