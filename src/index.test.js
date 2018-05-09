@@ -105,6 +105,42 @@ test("it can handle null data", () => {
   });
 });
 
+describe("when fragments are nested", () => {
+  it("masks data from child fragments", () => {
+    const maskedChildFragment = gql`
+      fragment MaskedChild on Query {
+        cantSeeThis
+      }
+    `;
+    const visibleFragmentData = gql`
+      fragment VisibleData on Query {
+        thisShouldBeVisible
+        ...MaskedChild
+      }
+      ${maskedChildFragment}
+    `;
+    const monoQuery = createMonoQuery({
+      data: {
+        thisShouldBeVisible: "yay, it is!",
+        cantSeeThis: "darn, there it is..."
+      }
+    });
+    const result = monoQuery({
+      query: gql`
+        {
+          ...VisibleData
+        }
+        ${visibleFragmentData}
+      `
+    });
+    expect(result.getResultsFor({ visibleFragmentData })).toEqual({
+      visibleFragmentData: {
+        thisShouldBeVisible: "yay, it is!"
+      }
+    });
+  });
+});
+
 describe("when fragments are nested under lists", () => {
   it("follows the list index parameters passed", () => {
     const fragments = {
