@@ -1,5 +1,7 @@
 # monoquery
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brysgo/monoquery.svg)](https://greenkeeper.io/)
+
 [![CircleCI][build-badge]][build]
 [![npm package][npm-badge]][npm]
 
