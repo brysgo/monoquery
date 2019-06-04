@@ -16,7 +16,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "graphql-anywhere": "^4.1.8"
+    "graphql-anywhere": "^4.2.3"
   },
   "peerDependencies": {
     "graphql-path": "*"
