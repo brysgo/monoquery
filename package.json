@@ -27,7 +27,7 @@
     "babel-preset-env": "^1.6.1",
     "graphql-path": "^3.1.4",
     "jest": "^24.9.0",
-    "nwb": "~0.23.0"
+    "nwb": "~0.25.2"
   },
   "license": "MIT"
 }
