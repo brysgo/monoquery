@@ -1,12 +1,8 @@
 # monoquery
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/brysgo/monoquery.svg)](https://greenkeeper.io/)
-
-[![CircleCI][build-badge]][build]
+![CI](https://github.com/brysgo/monoquery/workflows/CI/badge.svg)
 [![npm package][npm-badge]][npm]
 
-[build-badge]: https://circleci.com/gh/brysgo/monoquery.svg?style=svg
-[build]: https://circleci.com/gh/brysgo/monoquery
 
 [npm-badge]: https://img.shields.io/npm/v/monoquery.png?style=flat-square
 [npm]: https://www.npmjs.org/package/monoquery
