@@ -1,6 +1,6 @@
 {
   "name": "monoquery",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "description": "Collect graphql fragments and distribute data with apollo react and angular",
   "main": "lib/index.js",
   "module": "es/index.js",
