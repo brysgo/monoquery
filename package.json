@@ -22,12 +22,12 @@
     "graphql-path": "*"
   },
   "devDependencies": {
-    "babel-jest": "^23.2.0",
+    "babel-jest": "^26.3.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "graphql-path": "^3.1.4",
-    "jest": "^24.9.0",
-    "nwb": "~0.23.0"
+    "jest": "^26.4.1",
+    "nwb": "~0.25.2"
   },
   "license": "MIT"
 }
